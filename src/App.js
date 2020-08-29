@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import Row from './components/row/Row';
+import request from './requests/request';
+import Banner from './components/banner/Banner';
+import styles from './app.module.css';
+import NavBar from './components/NavBar/NavBar';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      {/* NavBar */}
+      <NavBar />
+      {/* Banner */}
+      <Banner />
+      <Row title="NETFLIX ORIGINALS" fetchURL={request.fetchNetflixOriginals} isLarge/>
+      <Row title="TOP TRENDINGS" fetchURL={request.fetchTrending}/>
+      <Row title="TOP RATED" fetchURL={request.fetchTopRated}/>
+      <Row title="ACTIONS MOVIES" fetchURL={request.fetchActionMovies}/>
+      <Row title="ROMANCE" fetchURL={request.fetchRomanceMovies}/>
+      <Row title="Horror Movies" fetchURL={request.fetchHorrorMovies}/>
+      <Row title="COMDEDY MOVIES" fetchURL={request.fetchComedyMovies}/>
+      <Row title="DOCUMENTARIES" fetchURL={request.fetchDocumentaries}/>
     </div>
   );
 }
